@@ -1,6 +1,6 @@
 # Lab authoring conventions
 
-Full reference: `contributing/configuration.md`
+Full reference: `contributing/configuration.md` and `contributing/conventions/writing/lab.md`
 
 ## When editing `lab/tasks/`
 
@@ -20,7 +20,8 @@ Read before making changes:
 
 Read before making changes:
 
-- [`contributing/configuration.md`](contributing/configuration.md) — repo structure, README, setup, git-workflow, GitHub templates, VS Code config, task runner, narrative, Docker, CONTRIBUTORS, checklist, security
+- [`contributing/configuration.md`](contributing/configuration.md) — repo structure, GitHub templates, VS Code config, task runner, Docker, CONTRIBUTORS, agent config, checklist
+- [`contributing/conventions/writing/lab.md`](contributing/conventions/writing/lab.md) — README structure, setup files, git workflow, narrative, security pattern, database naming, checklist
 
 ## When editing code (`backend/`, `frontend/`)
 

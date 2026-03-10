@@ -1,38 +1,30 @@
-# Lab creation conventions
+# Repository configuration
+
+<h2>Table of contents</h2>
 
 - [1. Repository structure](#1-repository-structure)
-- [2. `README.md` — Main entry point](#2-readmemd--main-entry-point)
-  - [2.1. Key rules for `README.md`](#21-key-rules-for-readmemd)
-- [3. Lab setup files](#3-lab-setup-files)
-  - [3.1. `lab/tasks/setup.md` — Full setup](#31-labtaskssetupmd--full-setup)
-    - [3.1.1. Key rules for `setup.md`](#311-key-rules-for-setupmd)
-  - [3.2. `lab/tasks/setup-simple.md` — Lab-specific setup](#32-labtaskssetup-simplemd--lab-specific-setup)
-    - [3.2.1. Key rules for `setup-simple.md`](#321-key-rules-for-setup-simplemd)
-- [4. `wiki/git-workflow.md` — Reusable Git workflow](#4-wikigit-workflowmd--reusable-git-workflow)
-  - [4.1. Key rules for git workflow](#41-key-rules-for-git-workflow)
-- [5. GitHub templates](#5-github-templates)
-  - [5.1. Issue templates](#51-issue-templates)
-    - [5.1.1. `01-task.yml` — Lab Task](#511-01-taskyml--lab-task)
-    - [5.1.2. `02-bug-report.yml` — Bug Report](#512-02-bug-reportyml--bug-report)
-    - [5.1.3. `config.yml`](#513-configyml)
-  - [5.2. PR template (`pull_request_template.md`)](#52-pr-template-pull_request_templatemd)
-- [6. VS Code settings (`.vscode/settings.json`)](#6-vs-code-settings-vscodesettingsjson)
-- [7. VS Code recommended extensions (`.vscode/extensions.json`)](#7-vs-code-recommended-extensions-vscodeextensionsjson)
-  - [7.1. Rules for extensions](#71-rules-for-extensions)
-- [8. Task runner and package manager config](#8-task-runner-and-package-manager-config)
-  - [8.1. Rules for task runner](#81-rules-for-task-runner)
-- [9. Lab story and narrative](#9-lab-story-and-narrative)
-- [10. Docker and deployment pattern](#10-docker-and-deployment-pattern)
-- [11. `CONTRIBUTORS.md` pattern](#11-contributorsmd-pattern)
-- [12. Checklist before publishing](#12-checklist-before-publishing)
-- [13. Security integration pattern](#13-security-integration-pattern)
-- [14. Database naming conventions](#14-database-naming-conventions)
-- [15. Agent configuration (`AGENTS.md`)](#15-agent-configuration-agentsmd)
-  - [15.1. File layout](#151-file-layout)
-  - [15.2. `AGENTS.md` structure](#152-agentsmd-structure)
-  - [15.3. Creating symlinks](#153-creating-symlinks)
+- [2. GitHub templates](#2-github-templates)
+  - [2.1. Issue templates](#21-issue-templates)
+    - [2.1.1. `01-task.yml` — Lab Task](#211-01-taskyml--lab-task)
+    - [2.1.2. `02-bug-report.yml` — Bug Report](#212-02-bug-reportyml--bug-report)
+    - [2.1.3. `config.yml`](#213-configyml)
+  - [2.2. PR template (`pull_request_template.md`)](#22-pr-template-pull_request_templatemd)
+- [3. VS Code settings (`.vscode/settings.json`)](#3-vs-code-settings-vscodesettingsjson)
+- [4. VS Code recommended extensions (`.vscode/extensions.json`)](#4-vs-code-recommended-extensions-vscodeextensionsjson)
+  - [4.1. Rules for extensions](#41-rules-for-extensions)
+- [5. Task runner and package manager config](#5-task-runner-and-package-manager-config)
+  - [5.1. Rules for task runner](#51-rules-for-task-runner)
+- [6. Docker and deployment pattern](#6-docker-and-deployment-pattern)
+- [7. `CONTRIBUTORS.md` pattern](#7-contributorsmd-pattern)
+- [8. Agent configuration (`AGENTS.md`)](#8-agent-configuration-agentsmd)
+  - [8.1. File layout](#81-file-layout)
+  - [8.2. `AGENTS.md` structure](#82-agentsmd-structure)
+  - [8.3. Creating symlinks](#83-creating-symlinks)
+- [9. Checklist before publishing](#9-checklist-before-publishing)
 
-Use this file when creating or restructuring a lab repository.
+Use this file when configuring the repository structure, templates, editor settings, and deployment infrastructure.
+
+---
 
 ## 1. Repository structure
 
@@ -72,7 +64,7 @@ Create the following directory and file layout. Items marked *(conditional)* are
 │       ├── gitlens/
 │       └── ...
 ├── contributing/                      # Lab authoring conventions
-│   ├── configuration.md               # Repo structure, setup, templates, checklist
+│   ├── configuration.md               # Repo structure, templates, settings, deployment, checklist
 │   └── conventions/                   # Detailed conventions by topic
 │       ├── agents/
 │       ├── git/
@@ -114,246 +106,15 @@ Create the following directory and file layout. Items marked *(conditional)* are
 └── <package-manager-config>           # e.g., pyproject.toml, package.json
 ```
 
-----
-
-## 2. `README.md` — Main entry point
-
-Structure the `README.md` exactly as follows:
-
-```markdown
-# Lab <N> — <Short title summarizing the lab>
-
-<h2>Table of contents</h2>
-
-- [Lab story](#lab-story)
-- [Learning advice](#learning-advice)
-- [Learning outcomes](#learning-outcomes)
-- [Tasks](#tasks)
-  - [Prerequisites](#prerequisites)
-  - [Required](#required)
-  - [Optional](#optional)
-
-## Lab story
-
-<!-- A narrative scenario that gives students a realistic context.
-     Example: "You were hired by a company that develops a novel e-learning system." -->
-
-## Learning advice
-
-Read the tasks and complete them by yourself.
-
-When stuck or not sure, ask an LLM:
-
-> Give me directions on how to solve this task. I want to maximize learning.
-
-> Why is this task important? What exactly do I need to do?
-
-Provide enough context by giving it the whole file, not one or two lines.
-
-Remember: Use the LLM to enhance your understanding, not replace it.
-
-Evaluate LLM answers critically, and verify them against credible sources such as official documentation, course materials, and what you observe in reality.
-
-## Learning outcomes
-
-By the end of this lab, you should be able to:
-
-- <Outcome 1>
-- <Outcome 2>
-- ...
-
-In simple words, you should be able to say:
->
-> 1. <Simple statement 1>
-> 2. <Simple statement 2>
-> ...
-
-## Tasks
-
-### Prerequisites
-
-1. Complete the [lab setup](./lab/tasks/setup-simple.md).
-
-> [!NOTE]
-> If this is the first lab you are completing in this course, do the [full lab setup](./lab/tasks/setup.md) instead.
-
-### Required
-
-1. [<Task 1 title>](./lab/tasks/required/task-1.md)
-2. [<Task 2 title>](./lab/tasks/required/task-2.md)
-...
-
-### Optional
-
-1. [<Optional task 1 title>](./lab/tasks/optional/task-1.md)
-...
-```
-
-### 2.1. Key rules for `README.md`
-
-- The `<h2>Table of contents</h2>` uses an HTML tag so it doesn't appear in its own ToC.
-- The ToC is generated by the `Markdown All in One` VS Code extension.
-- Learning outcomes are a bullet list of concrete, observable skills.
-- The "In simple words" block restates outcomes as first-person statements.
-- Required tasks build on each other sequentially.
-- Optional tasks are independent extensions.
-
-----
-
-## 3. Lab setup files
-
-Two setup files live in `lab/tasks/`. They serve different audiences.
-
-- `setup.md` — full first-time setup. Written for a student who has never done any lab in this course. Covers every step from scratch: finding a partner, creating a VM, installing programs, forking, cloning, configuring the environment, and starting services. Use `(UPD)` labels to mark steps that must be redone for this specific lab even if done before.
-- `setup-simple.md` — lab-specific setup. Written for a returning student who has the base tools from the previous lab. Covers only what is new or changed: cleaning up the previous lab's services, forking the new repo, cloning, configuring environment files, and starting services.
-
-The README links to `setup-simple.md` by default, with a note directing first-timers to `setup.md`.
-
-----
-
-### 3.1. `lab/tasks/setup.md` — Full setup
-
-Structure:
-
-```markdown
-# Lab setup
-
-- [1. Required steps](#1-required-steps)
-  - [1.1. (UPD) Find a partner](#11-upd-find-a-partner)
-  - [1.2. <Setup step>](#12-setup-step)
-  - ...
-- [2. Optional steps](#2-optional-steps)
-  - [2.1. <Enhancement>](#21-enhancement)
-  - ...
-
-## 1. Required steps
-
-> [!IMPORTANT]
-> Some steps have the `(UPD)` label.
->
-> These steps must be completed to get the right setup for this lab,
-> even if you have completed similar steps in the previous lab.
-
-### 1.1. (UPD) Find a partner
-
-1. Find a partner for this lab.
-2. Sit next to them.
-
-> [!IMPORTANT]
-> You work on tasks independently from your partner.
->
-> You and your partner work together when reviewing each other's work.
-
-### 1.2. <Setup step>
-...
-
 ---
 
-## 2. Optional steps
-
-These enhancements can make your life easier:
-
-<!-- no toc -->
-- [<Enhancement>](#21-enhancement)
-- ...
-```
-
-#### 3.1.1. Key rules for `setup.md`
-
-- Cover every step from scratch: partner, VM, programs, fork, clone, environment, start services.
-- Mark steps that must be redone for this lab with `(UPD)` in the heading. Explain at the top that `(UPD)` steps are required even if done before.
-- Partner setup is always step 1 (students review each other's PRs).
-- Each step links to wiki docs for the detailed how-to.
-- Separate required steps from optional enhancements with `---`.
-- Optional steps use `<!-- no toc -->` before their list.
-
-----
-
-### 3.2. `lab/tasks/setup-simple.md` — Lab-specific setup
-
-Structure:
-
-```markdown
-# Lab setup
-
-- [1. Required steps](#1-required-steps)
-  - [1.1. Clean up the previous lab](#11-clean-up-the-previous-lab)
-  - [1.2. <Setup step>](#12-setup-step)
-  - ...
-
-## 1. Required steps
-
-> [!NOTE]
-> This lab builds on the same tools and setup from Lab <N>.
-> If you completed Lab <N>, most tools are already installed.
-> The main changes are: <short list of what's new or changed>.
-
-### 1.1. Clean up the previous lab
-
-...
-
-### 1.2. <Setup step>
-...
-```
-
-#### 3.2.1. Key rules for `setup-simple.md`
-
-- Target audience: returning students who have the base setup from the previous lab.
-- Do NOT include first-time-only steps: installing VS Code, Docker, Git, SSH, configuring Git, setting up the shell, creating a VM (unless the lab specifically requires a fresh VM).
-- Start with cleanup of the previous lab's services to free ports and disk space.
-- Include: fork setup (new repo per lab), clone, environment files, starting services locally, and deployment if the lab requires it.
-- Add a note at the top explaining what changed from the previous lab.
-- Do not use `(UPD)` labels — every step in this file is already lab-specific.
-- No optional steps section — optional enhancements are covered in `setup.md`.
-
-----
-
-## 4. `wiki/git-workflow.md` — Reusable Git workflow
-
-This file describes the workflow students follow for every task that produces code changes:
-
-```text
-Issue → Branch → Commits → PR → Review → Merge
-```
-
-Structure:
-
-```markdown
-# `Git workflow` for tasks
-
-> [!NOTE]
-> This procedure is based on the [`GitHub flow`](./github.md#github-flow).
-
-Outline:
-
-- [Create a `Lab Task` issue](#create-a-lab-task-issue)
-- [Switch to the `main` branch](#switch-to-the-main-branch)
-- [Switch to a new branch](#switch-to-a-new-branch)
-- [Edit files](#edit-files)
-- [Commit](#commit)
-- [Publish the branch](#publish-the-branch)
-- [Create a PR to `main` in your fork](#create-a-pr-to-main-in-your-fork)
-- [Get a PR review](#get-a-pr-review)
-- [Merge the PR](#merge-the-pr)
-- [Clean up](#clean-up)
-```
-
-### 4.1. Key rules for git workflow
-
-- Every section links to the relevant wiki doc for the detailed how-to.
-- Task documents reference this file via `` [`Git workflow`](../../../wiki/git-workflow.md) ``.
-- The workflow is fork-based: students fork the course repo, work in branches, create PRs to their own fork's `main`.
-- PR review rules are included: reviewer checks acceptance criteria, leaves comments, approves.
-
-----
-
-## 5. GitHub templates
+## 2. GitHub templates
 
 > The templates below are the canonical starting point. The actual files in `.github/` may include lab-specific additions.
 
-### 5.1. Issue templates
+### 2.1. Issue templates
 
-#### 5.1.1. `01-task.yml` — Lab Task
+#### 2.1.1. `01-task.yml` — Lab Task
 
 ```yaml
 name: Lab Task
@@ -383,7 +144,7 @@ body:
       required: true
 ```
 
-#### 5.1.2. `02-bug-report.yml` — Bug Report
+#### 2.1.2. `02-bug-report.yml` — Bug Report
 
 Same structure as `01-task.yml`. Required fields:
 
@@ -392,13 +153,13 @@ Same structure as `01-task.yml`. Required fields:
 - `Expected Result`
 - `Actual Result`
 
-#### 5.1.3. `config.yml`
+#### 2.1.3. `config.yml`
 
 ```yaml
 blank_issues_enabled: false
 ```
 
-### 5.2. PR template (`pull_request_template.md`)
+### 2.2. PR template (`pull_request_template.md`)
 
 ```markdown
 ## Summary
@@ -417,9 +178,9 @@ blank_issues_enabled: false
 - [ ] I understand the changes I'm submitting.
 ```
 
-----
+---
 
-## 6. VS Code settings (`.vscode/settings.json`)
+## 3. VS Code settings (`.vscode/settings.json`)
 
 > The template below is the canonical starting point. The actual file in `.vscode/` may include lab-specific additions.
 
@@ -441,9 +202,9 @@ blank_issues_enabled: false
 
 Add language-specific formatter settings as needed (e.g., Python with Ruff, JS with Prettier).
 
-----
+---
 
-## 7. VS Code recommended extensions (`.vscode/extensions.json`)
+## 4. VS Code recommended extensions (`.vscode/extensions.json`)
 
 > The template below is the canonical starting point. The actual file in `.vscode/` may include lab-specific additions.
 
@@ -478,15 +239,15 @@ Provide a curated list of recommended extensions so students can install them al
 }
 ```
 
-### 7.1. Rules for extensions
+### 4.1. Rules for extensions
 
 - Group extensions by purpose with `//` comments.
 - Include extensions for: the lab's programming language, Git, remote development, Markdown, GitHub, and relevant file formats.
 - The setup doc instructs students to install these via `Extensions` > `Filter` > `Recommended` > `Install Workspace Recommended extensions`.
 
-----
+---
 
-## 8. Task runner and package manager config
+## 5. Task runner and package manager config
 
 Define common project commands using a task runner so students run simple commands rather than remembering complex CLI invocations.
 
@@ -521,7 +282,7 @@ Example with `package.json`:
 }
 ```
 
-### 8.1. Rules for task runner
+### 5.1. Rules for task runner
 
 - Students run a single short command (e.g., `uv run poe dev`, `npm run dev`) — no need to memorize raw commands.
 - Document task runner commands in `> [!NOTE]` blocks the first time they appear:
@@ -531,33 +292,9 @@ Example with `package.json`:
   > `<runner>` can run tasks specified in the `<config-file>`.
   ```
 
-----
+---
 
-## 9. Lab story and narrative
-
-- Frame the lab as a realistic work scenario (e.g., "You were hired by a company...", "Your team was asked to...").
-- Introduce a senior engineer (or team lead) giving the assignment.
-- Use blockquotes for the senior engineer's words. The quoted tasks should mirror the actual required tasks:
-
-  ```markdown
-  A senior engineer explains your first assignment:
-
-  > 1. <High-level description of task 1>.
-  > 2. <High-level description of task 2>.
-  > 3. <High-level description of task 3>.
-  > ...
-
-  > [!IMPORTANT]
-  > Communicate through issues and PRs and deliver <the expected outcome>.
-  ```
-
-- The story should make the tasks feel purposeful, not academic.
-- Adapt the scenario to the lab's domain (web development, data processing, CLI tools, infrastructure, etc.).
-- **Cross-lab continuity:** When a course has multiple labs, keep one product across labs and grow the data model incrementally. Example: Lab 2 deploys the service, Lab 3 adds endpoints and security, Lab 4 adds outcomes and verification. Each lab picks up where the previous one left off. This gives students a sense of building something real over time.
-
-----
-
-## 10. Docker and deployment pattern
+## 6. Docker and deployment pattern
 
 > Include this section only if the lab involves containerization or remote deployment. Omit the Docker/deployment files from the repository structure if not needed.
 
@@ -593,9 +330,9 @@ If the lab involves deployment:
    - Remote: `CADDY_HOST_ADDRESS=0.0.0.0` (accessible from outside).
 8. **Use an institutional container registry** (e.g., Harbor cache proxy) for base images to avoid Docker Hub rate limits ("too many requests" errors). Reference the registry in `docker-compose.yml` image fields instead of pulling directly from Docker Hub.
 
-----
+---
 
-## 11. `CONTRIBUTORS.md` pattern
+## 7. `CONTRIBUTORS.md` pattern
 
 Include a `CONTRIBUTORS.md` file where students add their GitHub username via a PR:
 
@@ -614,86 +351,13 @@ Replace @johndoe with @<your-username> where
 - @johndoe
 ```
 
-----
+---
 
-## 12. Checklist before publishing
-
-**Always required:**
-
-- [ ] `README.md` has: story, learning advice, learning outcomes, task list.
-- [ ] `AGENTS.md` exists at repo root with `CLAUDE.md` and `QWEN.md` as symlinks to it.
-- [ ] Every task file has: Time, Purpose, Context, ToC, Steps, Acceptance criteria.
-- [ ] Every terminal command has a `` [Run using the `VS Code Terminal`] `` link prefix.
-- [ ] Every Command Palette command has a `` [Run using the `Command Palette`] `` link prefix.
-- [ ] All cross-references use relative paths and are valid.
-- [ ] Wiki docs exist for every tool/concept linked from tasks.
-- [ ] Issue templates (`01-task.yml`, `02-bug-report.yml`) are configured.
-- [ ] PR template has a checklist.
-- [ ] `.vscode/settings.json` and `.vscode/extensions.json` are configured.
-- [ ] `.gitignore` excludes generated files and secrets for the lab's ecosystem.
-- [ ] Ordered lists use `1. 2. 3.` (not `1. 1. 1.`).
-- [ ] Compound instructions are split into separate steps.
-- [ ] All sentences end with `.`.
-- [ ] Options and steps are clearly differentiated.
-- [ ] Tool/concept names are wrapped in backticks: `` `VS Code` ``, `` `Git` ``, `` `Docker` ``.
-- [ ] `Git workflow` is referenced from tasks that produce code changes.
-- [ ] Acceptance criteria are concrete and verifiable.
-- [ ] Commit message format is documented (conventional commits).
-- [ ] `setup.md` covers all first-time steps: partner, VM, programs, fork, clone, environment, start services.
-- [ ] `setup-simple.md` covers only lab-specific steps: cleanup, fork, clone, environment, start services.
-- [ ] README links to `setup-simple.md` by default with a note directing first-timers to `setup.md`.
-- [ ] Branch protection rules are documented.
-- [ ] Partner/collaborator setup is documented.
-- [ ] `CONTRIBUTORS.md` exists with placeholder entry.
-- [ ] Diagrams use `.drawio.svg` format.
-- [ ] `<!-- TODO -->` markers exist for unfinished sections.
-
-**Conditional (include when applicable):**
-
-- [ ] `.env.example` files are provided; `.env.secret` files are gitignored (if the lab uses environment variables).
-- [ ] `.dockerignore` excludes tests, docs, `.git/`, build caches, markdown files (if the lab uses Docker).
-- [ ] At least one test intentionally fails for the debugging task (if the lab has a testing/debugging task).
-- [ ] Task runner commands are documented in the config file (if the lab uses a task runner).
-- [ ] Seed project has three tiers: reference (working), debug (commented out with bugs), implement (placeholder templates) (if the lab uses the seed project pattern).
-- [ ] Placeholder templates include `# Reference:` comments mapping new resources to reference counterparts (if the lab uses placeholder-based implementation).
-- [ ] All tasks are completable without LLMs.
-- [ ] Docker images use an institutional container registry (if the lab uses Docker in an institutional setting).
-- [ ] API key or auth mechanism is set via environment variable and encountered naturally during exploration (if the lab includes security).
-
-----
-
-## 13. Security integration pattern
-
-> Include this section only if the lab involves API authentication or server hardening. Omit for labs without security concerns.
-
-Introduce security as something students encounter naturally, not as a standalone lecture:
-
-1. **Simple API key via environment variable.** Use one shared key set via an `API_KEY` (or similar) environment variable. No user accounts, no roles, no permissions matrix. Students discover the mechanism when they try an endpoint and get `401 Unauthorized`.
-2. **Natural discovery.** Place the API key requirement on endpoints students will use in the exploration task. They encounter auth organically rather than being told about it in isolation.
-3. **Environment-based configuration.** The key lives in `.env.secret` (local) and `.env.docker.secret` (Docker/deployment). Students learn to set different keys per environment.
-4. **Server hardening (optional advanced task).** For deployment labs, consider including VM hardening as a separate task: non-root SSH user, firewall (`ufw`), `fail2ban`, disable root login and password authentication. This is infrastructure security, distinct from application-level auth.
-
-----
-
-## 14. Database naming conventions
-
-Only include when the lab has a relational database layer.
-
-Name tables according to their role in the schema:
-
-- **Entity tables** — singular noun (e.g., `learner`, `item`).
-- **Relationship tables** — verb (e.g., `interacts`).
-
-- **Entity** — singular noun — `learner`, `item`
-- **Relationship** — verb — `interacts`
-
-----
-
-## 15. Agent configuration (`AGENTS.md`)
+## 8. Agent configuration (`AGENTS.md`)
 
 The repository uses a single canonical agent configuration file that all AI coding assistants read.
 
-### 15.1. File layout
+### 8.1. File layout
 
 ```text
 <repo-root>/
@@ -709,7 +373,7 @@ The repository uses a single canonical agent configuration file that all AI codi
 
 Agent tool directories (`.claude/`, `.qwen/`) are symlinks to `.agents/` so all agents share the same skill definitions.
 
-### 15.2. `AGENTS.md` structure
+### 8.2. `AGENTS.md` structure
 
 `AGENTS.md` is the single source of truth for agent instructions. It follows the same structure as `CLAUDE.md`:
 
@@ -731,7 +395,7 @@ Read before making changes:
 - Each section lists the relevant convention files to read before making changes.
 - `CLAUDE.md` and `QWEN.md` are symlinks — never edit them directly; edit `AGENTS.md`.
 
-### 15.3. Creating symlinks
+### 8.3. Creating symlinks
 
 ```bash
 ln -s AGENTS.md CLAUDE.md
@@ -739,3 +403,23 @@ ln -s AGENTS.md QWEN.md
 ln -s .agents .claude
 ln -s .agents .qwen
 ```
+
+---
+
+## 9. Checklist before publishing
+
+- [ ] `AGENTS.md` exists at repo root with `CLAUDE.md` and `QWEN.md` as symlinks to it.
+- [ ] All cross-references use relative paths and are valid.
+- [ ] Issue templates (`01-task.yml`, `02-bug-report.yml`) are configured.
+- [ ] PR template has a checklist.
+- [ ] `.vscode/settings.json` and `.vscode/extensions.json` are configured.
+- [ ] `.gitignore` excludes generated files and secrets for the lab's ecosystem.
+- [ ] Branch protection rules are documented.
+- [ ] `CONTRIBUTORS.md` exists with placeholder entry.
+
+**Conditional (include when applicable):**
+
+- [ ] `.env.example` files are provided; `.env.secret` files are gitignored (if the lab uses environment variables).
+- [ ] `.dockerignore` excludes tests, docs, `.git/`, build caches, markdown files (if the lab uses Docker).
+- [ ] Task runner commands are documented in the config file (if the lab uses a task runner).
+- [ ] Docker images use an institutional container registry (if the lab uses Docker in an institutional setting).
