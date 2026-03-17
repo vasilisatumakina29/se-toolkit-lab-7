@@ -8,6 +8,8 @@
 - [Library](#library)
   - [Shared library](#shared-library)
 - [Executable](#executable)
+- [Application](#application)
+  - [Web application](#web-application)
 
 ## What is software
 
@@ -47,3 +49,14 @@ An executable is a file that contains machine instructions that the [operating s
 It is the end product of compiling [source code](#source-code) — for example, `python3` on [`Linux`](./operating-system.md#linux) or `notepad.exe` on [`Windows`](./operating-system.md#windows).
 
 When run, the executable becomes a [process](./operating-system.md#process).
+
+## Application
+
+An application is [software](#what-is-software) that provides a complete experience to end users.
+It is built from one or more [programs](#program) and [libraries](#library), and may include a [backend](./backend.md#what-is-a-backend), a [frontend](./frontend.md#what-is-frontend), or both.
+
+### Web application
+
+A web application runs as a [process](./operating-system.md#process) on a [web server](./web-infrastructure.md#web-server).
+
+The web application is accessed by a [web client](./web-infrastructure.md#web-client) over the [network](./computer-networks.md#what-is-a-network).
