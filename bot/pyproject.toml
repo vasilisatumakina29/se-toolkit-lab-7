@@ -1,6 +1,11 @@
 [project]
 name = "lms-bot"
 version = "0.1.0"
-description = "LMS Telegram Bot"
+description = "Telegram bot and offline CLI test mode for the LMS project"
 requires-python = "==3.14.2"
-dependencies = ["aiogram>=3.20", "httpx==0.28.1", "pydantic-settings==2.12.0"]
+dependencies = [
+  "aiogram>=3.20,<4",
+  "httpx==0.28.1",
+  "pydantic==2.12.5",
+  "pydantic-settings==2.12.0",
+]

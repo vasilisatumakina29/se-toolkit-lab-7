@@ -414,13 +414,15 @@ source = { virtual = "bot" }
 dependencies = [
     { name = "aiogram" },
     { name = "httpx" },
+    { name = "pydantic" },
     { name = "pydantic-settings" },
 ]
 
 [package.metadata]
 requires-dist = [
-    { name = "aiogram", specifier = ">=3.20" },
+    { name = "aiogram", specifier = ">=3.20,<4" },
     { name = "httpx", specifier = "==0.28.1" },
+    { name = "pydantic", specifier = "==2.12.5" },
     { name = "pydantic-settings", specifier = "==2.12.0" },
 ]
 
