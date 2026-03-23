@@ -9,6 +9,7 @@ ENV UV_PYTHON_DOWNLOADS=0
 WORKDIR /app
 
 COPY pyproject.toml uv.lock /app/
+COPY backend/pyproject.toml /app/backend/pyproject.toml
 COPY bot/pyproject.toml /app/bot/pyproject.toml
 
 RUN --mount=type=cache,target=/root/.cache/uv \
