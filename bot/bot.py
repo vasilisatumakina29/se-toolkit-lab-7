@@ -57,7 +57,7 @@ async def run_telegram_mode() -> int:
     await dispatcher.start_polling(bot)
     return 0
 
-
+## entry point
 def main() -> int:
     """Run the requested application mode."""
     args = parse_args()
